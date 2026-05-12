@@ -1,0 +1,52 @@
+<section id="projects" class="projects">
+  <div class="projects-header">
+    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+    <div class="filter-buttons">
+      <button (click)="setFilter('all')" [class.active]="currentFilter === 'all'">All</button>
+      <button (click)="setFilter('web')" [class.active]="currentFilter === 'web'">Web</button>
+      <button (click)="setFilter('mobile')" [class.active]="currentFilter === 'mobile'">Mobile</button>
+      <button (click)="setFilter('system')" [class.active]="currentFilter === 'system'">System</button>
+    </div>
+  </div>
+  
+  <div class="project-grid">
+    <div *ngFor="let project of filteredProjects" #projectCard class="project-card glass-card">
+      <div class="project-image">
+        <img [src]="project.image" [alt]="project.title">
+        <div class="overlay">
+          <button (click)="openModal(project)" class="view-btn">View Details</button>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <div class="tags">
+          <span *ngFor="let tag of project.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Details Modal -->
+  <div class="project-modal" *ngIf="selectedProject" (click)="closeModal()">
+    <div class="modal-content glass-card" (click)="$event.stopPropagation()">
+      <button class="close-modal" (click)="closeModal()">&times;</button>
+      <div class="modal-grid">
+        <div class="modal-image">
+          <img [src]="selectedProject.image" [alt]="selectedProject.title">
+        </div>
+        <div class="modal-info">
+          <h2>{{ selectedProject.title }}</h2>
+          <div class="modal-tags">
+            <span *ngFor="let tag of selectedProject.tags">{{ tag }}</span>
+          </div>
+          <p class="long-desc">{{ selectedProject.longDescription }}</p>
+          <div class="modal-actions">
+            <a [href]="selectedProject.link" class="btn-primary">Visit Project</a>
+            <button class="btn-outline" (click)="closeModal()">Back to Gallery</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

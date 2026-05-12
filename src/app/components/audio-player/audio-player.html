@@ -1,0 +1,54 @@
+<div class="audio-player-container glass-card" [class.playing]="isPlaying" [style.bottom.px]="bottomOffset">
+  <audio #audioPlayer [src]="currentTrack.url"></audio>
+  
+  <div class="controls">
+    <button class="control-btn" (click)="previousTrack()" aria-label="Previous">
+      <i class="fas fa-step-backward"></i>
+    </button>
+
+    <button class="play-btn" (click)="togglePlay()" [attr.aria-label]="isPlaying ? 'Pause' : 'Play'">
+      <div class="icon-wrapper">
+        <svg *ngIf="!isPlaying" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        <svg *ngIf="isPlaying" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+      </div>
+    </button>
+
+    <button class="control-btn" (click)="nextTrack()" aria-label="Next">
+      <i class="fas fa-step-forward"></i>
+    </button>
+
+    <button class="control-btn menu-btn" (click)="togglePlaylist()" aria-label="Playlist">
+      <i class="fas fa-list"></i>
+    </button>
+  </div>
+
+  <div class="playlist-menu glass-card" *ngIf="showPlaylist">
+    <div class="playlist-header">
+      <span>Select Genre</span>
+      <button (click)="togglePlaylist()">&times;</button>
+    </div>
+    <div class="track-list">
+      <div class="track-item" *ngFor="let track of playlist; let i = index" 
+           (click)="selectTrack(i)" [class.active]="i === currentTrackIndex">
+        <span class="track-name">{{ track.name }}</span>
+        <span class="track-artist">{{ track.artist }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="song-info">
+    <span class="song-title">{{ currentTrack.name }}</span>
+    <span class="artist">{{ currentTrack.artist }}</span>
+  </div>
+
+  <div class="visualizer" *ngIf="isPlaying">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>

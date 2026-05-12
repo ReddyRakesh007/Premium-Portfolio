@@ -1,0 +1,43 @@
+.certifications {
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3.5rem;
+    text-align: center;
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+
+    .cert-card {
+      text-align: center;
+      padding: 2rem;
+      
+      .cert-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        filter: drop-shadow(0 0 10px var(--accent-blue));
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: var(--text-dim);
+        margin-bottom: 1rem;
+      }
+
+      .date {
+        font-size: 0.8rem;
+        color: var(--accent-blue);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

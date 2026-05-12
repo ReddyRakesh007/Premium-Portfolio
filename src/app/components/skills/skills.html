@@ -1,0 +1,19 @@
+<section id="skills" class="skills">
+  <h2 class="section-title">Technical <span class="gradient-text">Expertise</span></h2>
+  <div class="skills-container">
+    <div class="skill-category glass-card" *ngFor="let category of skillCategories">
+      <h3>{{ category.name }}</h3>
+      <div class="skill-list">
+        <div #skillItem class="skill-item" *ngFor="let skill of category.skills">
+          <div class="skill-info">
+            <span>{{ skill.name }}</span>
+            <span class="skill-percentage">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-progress">
+            <div #progressBar class="skill-progress-fill" [attr.data-level]="skill.level"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

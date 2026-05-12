@@ -1,0 +1,32 @@
+<section id="games" class="games">
+  <div class="section-header">
+    <h2 class="section-title">Interactive <span class="gradient-text">Games</span></h2>
+    <p class="subtitle">Experience my game development projects directly in your browser.</p>
+  </div>
+
+  <div class="game-grid">
+    <div *ngFor="let game of games" class="game-card glass-card">
+      <div class="game-image">
+        <div class="neon-border"></div>
+        <img [src]="game.image" [alt]="game.title">
+        <div class="overlay">
+          <a [href]="game.link" class="play-btn">
+            <i class="fas fa-play"></i>
+            <span>PLAY DEMO</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="game-info">
+        <div class="header">
+          <h3>{{ game.title }}</h3>
+          <span class="genre">{{ game.genre }}</span>
+        </div>
+        <p>{{ game.description }}</p>
+        <div class="game-tags">
+          <span *ngFor="let tag of game.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

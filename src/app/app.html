@@ -1,0 +1,20 @@
+<app-resume-view #resumeView></app-resume-view>
+<app-preloader></app-preloader>
+<div #cursorDot class="cursor-dot"></div>
+<div #cursorOutline class="cursor-outline"></div>
+<app-three-background></app-three-background>
+<app-header></app-header>
+<main>
+  <app-hero [resumeModal]="resumeView"></app-hero>
+  <app-stats></app-stats>
+  <app-education></app-education>
+  <app-certifications></app-certifications>
+  <app-experience></app-experience>
+  <app-projects></app-projects>
+  <app-games></app-games>
+  <app-skills></app-skills>
+  <app-contact></app-contact>
+</main>
+<app-footer></app-footer>
+<router-outlet></router-outlet>
+<app-audio-player></app-audio-player>

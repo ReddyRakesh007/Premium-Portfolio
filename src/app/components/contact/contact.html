@@ -1,0 +1,57 @@
+<section id="contact" class="contact">
+  <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+  
+  <div class="contact-container glass-card">
+    <div class="contact-info">
+      <h3>Let's collaborate!</h3>
+      <p>I'm always open to new opportunities and projects. Feel free to reach out.</p>
+      
+      <div class="info-item">
+        <span class="label">Email:</span>
+        <div class="value-wrapper">
+          <a href="mailto:jaitherider007@gmail.com" class="value">jaitherider007@gmail.com</a>
+          <button class="copy-btn" (click)="copyToClipboard('jaitherider007@gmail.com', 'email')" title="Copy Email">
+            <i class="fas" [class.fa-copy]="copiedText !== 'email'" [class.fa-check]="copiedText === 'email'"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <span class="label">Phone:</span>
+        <div class="value-wrapper">
+          <a href="tel:+917981275466" class="value">+91 7981275466</a>
+          <button class="copy-btn" (click)="copyToClipboard('+917981275466', 'phone')" title="Copy Phone">
+            <i class="fas" [class.fa-copy]="copiedText !== 'phone'" [class.fa-check]="copiedText === 'phone'"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <span class="label">Location:</span>
+        <span class="value">India</span>
+      </div>
+    </div>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <div *ngIf="submitSuccess" class="success-message">
+        <p>🚀 Message sent! I'll get back to you soon.</p>
+      </div>
+
+      <div class="form-group">
+        <input type="text" formControlName="name" placeholder="Your Name">
+      </div>
+      
+      <div class="form-group">
+        <input type="email" formControlName="email" placeholder="Your Email">
+      </div>
+      
+      <div class="form-group">
+        <textarea formControlName="message" placeholder="Your Message" rows="5"></textarea>
+      </div>
+      
+      <button type="submit" class="btn-primary" [disabled]="contactForm.invalid || isSubmitting">
+        {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+      </button>
+    </form>
+  </div>
+</section>
