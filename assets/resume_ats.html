@@ -133,7 +133,7 @@
         }
         h1 { font-size: 2.5rem; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
         .contact-info { color: var(--secondary); font-size: 0.9rem; }
-        .contact-info span { margin: 0 10px; }
+        .contact-info span.sep { margin: 0 5px; color: var(--border); }
         .section { margin-bottom: 15px; }
         h2 {
             font-size: 1.1rem;
@@ -145,6 +145,52 @@
             letter-spacing: 1px;
         }
         .summary { font-size: 0.95rem; }
+
+        @media (max-width: 600px) {
+            .pdf-toolbar {
+                padding: 0 10px;
+            }
+            .toolbar-group:nth-child(2) {
+                display: none !important;
+            }
+            .toolbar-group:nth-child(3) .icon-btn:not([title="Download"]):not([title="Print"]) {
+                display: none;
+            }
+            .file-name {
+                display: none;
+            }
+            .document-view {
+                padding: 5px;
+            }
+            .container {
+                padding: 20px 15px !important;
+                width: 100% !important;
+                margin: 0 !important;
+                box-shadow: none;
+            }
+            h1 { 
+                font-size: 1.3rem !important; 
+                line-height: 1.2;
+                margin-bottom: 10px;
+            }
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                font-size: 0.75rem;
+                gap: 4px;
+                line-height: 1.4;
+            }
+            .contact-info span.sep {
+                display: none;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -170,6 +216,12 @@
             body { background: white; padding: 0; display: block; height: auto; overflow: visible; }
             .document-view { padding: 0; overflow: visible; }
             .container { max-width: 100%; box-shadow: none; margin: 0; padding: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .thumbnail-sidebar {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -226,12 +278,12 @@
                 <header>
                     <h1>Rakesh Reddy Karri</h1>
                     <div class="contact-info">
-                        <span>India</span> | 
-                        <span>+91 7981275466</span> | 
+                        <span>Palakollu, India</span> <span class="sep">|</span>
+                        <span>+91 7981275466</span> <span class="sep">|</span>
                         <span>jaitherider007@gmail.com</span>
                     </div>
                     <div class="contact-info" style="margin-top: 5px;">
-                        <span>github.com/rakeshreddy</span> | 
+                        <span>github.com/rakeshreddy</span> <span class="sep">|</span>
                         <span>linkedin.com/in/rakeshreddy</span>
                     </div>
                 </header>
@@ -278,8 +330,14 @@
                             <h3>Bachelor of Technology (B.Tech)</h3>
                             <span class="date">2020 – 2024</span>
                         </div>
-                        <span class="company">Computer Science & Engineering</span>
-                        <p style="font-size: 0.9rem;">Successfully completed 8 semesters of rigorous academic study in software engineering principles.</p>
+                        <span class="company">Jawaharlal Nehru Technological University</span>
+                    </div>
+                    <div class="experience-item" style="margin-top: 15px;">
+                        <div class="exp-header">
+                            <h3>Intermediate (MPC)</h3>
+                            <span class="date">2018 – 2020</span>
+                        </div>
+                        <span class="company">Sri Chaitanya Junior College, Palakollu</span>
                     </div>
                 </div>
 
