@@ -59,6 +59,9 @@
 }
 
 @media (max-width: 600px) {
+  .footer {
+    padding-bottom: 5rem; /* Space for audio player */
+  }
   .footer-content {
     flex-direction: column;
     gap: 1.5rem;
