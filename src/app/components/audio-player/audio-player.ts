@@ -165,18 +165,19 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
   }
 
   private checkScroll() {
+    const isMobile = window.innerWidth <= 768;
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
     const bodyHeight = document.documentElement.scrollHeight;
-    const footer = document.querySelector('footer');
-    const footerHeight = footer ? footer.offsetHeight : 0;
+    const footer = document.querySelector('app-footer');
+    const footerHeight = footer ? (footer as HTMLElement).offsetHeight : 0;
     
     const distanceFromBottom = bodyHeight - (scrollPosition + windowHeight);
     
     if (distanceFromBottom < footerHeight) {
-      this.bottomOffset = (footerHeight - distanceFromBottom) + 20;
+      this.bottomOffset = (footerHeight - distanceFromBottom) + (isMobile ? 10 : 20);
     } else {
-      this.bottomOffset = 32;
+      this.bottomOffset = isMobile ? 20 : 32;
     }
   }
 }
