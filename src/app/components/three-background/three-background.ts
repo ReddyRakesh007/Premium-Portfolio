@@ -17,8 +17,7 @@ import * as THREE from 'three';
       transition: opacity 0.5s ease;
     }
     :host-context(.light-theme) .three-canvas {
-      opacity: 0;
-      visibility: hidden;
+      opacity: 0.6;
     }
   `]
 })
@@ -34,18 +33,44 @@ export class ThreeBackgroundComponent implements OnInit, OnDestroy {
   private animationId!: number;
   private mouseX = 0;
   private mouseY = 0;
+  private themeObserver!: MutationObserver;
 
   ngOnInit() {
     this.initThree();
     this.animate();
     window.addEventListener('resize', this.onResize.bind(this));
     window.addEventListener('mousemove', this.onMouseMove.bind(this));
+    this.setupThemeObserver();
   }
 
   ngOnDestroy() {
     cancelAnimationFrame(this.animationId);
     window.removeEventListener('resize', this.onResize.bind(this));
     window.removeEventListener('mousemove', this.onMouseMove.bind(this));
+    if (this.themeObserver) this.themeObserver.disconnect();
+  }
+
+  private setupThemeObserver() {
+    this.themeObserver = new MutationObserver(() => {
+      const isLight = document.documentElement.classList.contains('light-theme');
+      this.updateThemeStyles(isLight);
+    });
+
+    this.themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    // Initial check
+    this.updateThemeStyles(document.documentElement.classList.contains('light-theme'));
+  }
+
+  private updateThemeStyles(isLight: boolean) {
+    if (this.stars) {
+      const material = this.stars.material as THREE.PointsMaterial;
+      material.blending = isLight ? THREE.NormalBlending : THREE.AdditiveBlending;
+      material.opacity = isLight ? 0.7 : 0.9;
+    }
   }
 
   private createCircleTexture() {
@@ -124,6 +149,11 @@ export class ThreeBackgroundComponent implements OnInit, OnDestroy {
 
     this.stars = new THREE.Points(this.starGeo, starMaterial);
     this.scene.add(this.stars);
+
+    // Update theme styles if light mode is already active
+    if (document.documentElement.classList.contains('light-theme')) {
+      this.updateThemeStyles(true);
+    }
 
     // Add Floating 3D Shapes
     this.createFloatingShapes();
