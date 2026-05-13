@@ -243,9 +243,12 @@
 
 @media (max-width: 768px) {
   .audio-player-container {
+    top: 1rem; /* Move to top on mobile to avoid overlap with footer/forms */
+    bottom: auto !important;
     left: 1rem;
-    padding: 0.6rem 1.2rem;
-    max-width: 180px;
+    padding: 0.5rem 1rem;
+    max-width: 160px;
+    z-index: 10001; /* Above header if necessary */
 
     .song-info {
       display: none; /* Hide text on small mobile to keep it slim */

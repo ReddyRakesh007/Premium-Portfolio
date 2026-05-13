@@ -166,6 +166,11 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
 
   private checkScroll() {
     const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      this.bottomOffset = 0; // Not used when top is set in CSS
+      return;
+    }
+    
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
     const bodyHeight = document.documentElement.scrollHeight;
@@ -175,9 +180,9 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
     const distanceFromBottom = bodyHeight - (scrollPosition + windowHeight);
     
     if (distanceFromBottom < footerHeight) {
-      this.bottomOffset = (footerHeight - distanceFromBottom) + (isMobile ? 10 : 20);
+      this.bottomOffset = (footerHeight - distanceFromBottom) + 20;
     } else {
-      this.bottomOffset = isMobile ? 20 : 32;
+      this.bottomOffset = 32;
     }
   }
 }
