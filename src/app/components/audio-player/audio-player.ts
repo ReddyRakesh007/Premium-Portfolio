@@ -83,11 +83,6 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
     document.addEventListener('click', firstInteractionHandler);
     document.addEventListener('keydown', firstInteractionHandler);
     document.addEventListener('touchstart', firstInteractionHandler);
-
-    // Listen for track end
-    this.audioPlayer.nativeElement.onended = () => {
-      this.nextTrack();
-    };
   }
 
   private playAudio() {

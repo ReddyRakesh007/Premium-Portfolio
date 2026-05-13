@@ -1,5 +1,5 @@
 <div class="audio-player-container glass-card" [class.playing]="isPlaying" [style.bottom.px]="bottomOffset">
-  <audio #audioPlayer [src]="currentTrack.url"></audio>
+  <audio #audioPlayer [src]="currentTrack.url" (ended)="nextTrack()"></audio>
   
   <div class="controls">
     <button class="control-btn" (click)="previousTrack()" aria-label="Previous">
