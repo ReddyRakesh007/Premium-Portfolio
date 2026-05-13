@@ -75,7 +75,7 @@
     gap: 1.5rem;
 
     .theme-toggle {
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--glass-hover);
       border: 1px solid var(--glass-border);
       width: 40px;
       height: 40px;

@@ -157,7 +157,7 @@
           span {
             font-size: 0.75rem;
             padding: 4px 12px;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--glass-hover);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             color: var(--accent-blue);
@@ -285,7 +285,7 @@
               transition: var(--transition);
 
               &:hover {
-                background: rgba(255, 255, 255, 0.05);
+                background: var(--glass-hover);
                 border-color: var(--text-main);
               }
             }

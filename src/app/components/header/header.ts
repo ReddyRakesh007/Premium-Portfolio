@@ -19,10 +19,10 @@ export class HeaderComponent implements AfterViewInit {
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
     if (this.isDarkTheme) {
-      document.body.classList.remove('light-theme');
+      document.documentElement.classList.remove('light-theme');
       localStorage.setItem('theme', 'dark');
     } else {
-      document.body.classList.add('light-theme');
+      document.documentElement.classList.add('light-theme');
       localStorage.setItem('theme', 'light');
     }
   }
@@ -52,10 +52,10 @@ export class HeaderComponent implements AfterViewInit {
     // Default to dark if no theme is saved or if explicitly set to dark
     if (savedTheme === 'light') {
       this.isDarkTheme = false;
-      document.body.classList.add('light-theme');
+      document.documentElement.classList.add('light-theme');
     } else {
       this.isDarkTheme = true;
-      document.body.classList.remove('light-theme');
+      document.documentElement.classList.remove('light-theme');
       localStorage.setItem('theme', 'dark');
     }
   }

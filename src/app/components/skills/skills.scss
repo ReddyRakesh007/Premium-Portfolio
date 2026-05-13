@@ -44,7 +44,7 @@
 
           .skill-progress {
             height: 6px;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--glass-hover);
             border-radius: 10px;
             overflow: hidden;
             position: relative;

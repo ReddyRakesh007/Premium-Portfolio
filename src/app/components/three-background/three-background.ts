@@ -14,6 +14,11 @@ import * as THREE from 'three';
       height: 100vh;
       z-index: -1;
       pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    :host-context(.light-theme) .three-canvas {
+      opacity: 0;
+      visibility: hidden;
     }
   `]
 })

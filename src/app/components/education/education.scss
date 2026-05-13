@@ -65,7 +65,7 @@
         .sem {
           font-size: 0.75rem;
           padding: 4px 10px;
-          background: rgba(255, 255, 255, 0.05);
+          background: var(--glass-hover);
           border: 1px solid var(--glass-border);
           border-radius: 4px;
           color: var(--text-dim);

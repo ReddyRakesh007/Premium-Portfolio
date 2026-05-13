@@ -94,10 +94,10 @@
         input, textarea {
           width: 100%;
           padding: 15px 20px;
-          background: rgba(255, 255, 255, 0.05);
+          background: var(--glass-hover);
           border: 1px solid var(--glass-border);
           border-radius: 12px;
-          color: white;
+          color: var(--text-main);
           font-family: inherit;
           font-size: 1rem;
           transition: var(--transition);

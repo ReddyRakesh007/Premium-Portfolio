@@ -35,7 +35,7 @@ import { CommonModule } from '@angular/common';
           <div class="resume-page">
             <header class="resume-header">
               <h1>Rakesh Reddy Karri</h1>
-              <p class="contact">India | +91 7981275466 | jaitherider007@gmail.com</p>
+              <p class="contact">Palakollu, India | +91 7981275466 | jaitherider007@gmail.com</p>
               <div class="links">
                 <a href="#">GitHub</a> | <a href="#">LinkedIn</a>
               </div>
@@ -69,6 +69,7 @@ import { CommonModule } from '@angular/common';
             <section class="resume-section">
               <h4>Education</h4>
               <p><strong>B.Tech in Computer Science</strong> (2020 - 2024)</p>
+              <p><strong>Intermediate (MPC)</strong> - Sri Chaitanya Junior College, Palakollu (2018 - 2020)</p>
             </section>
 
             <div class="resume-footer">
@@ -204,6 +205,38 @@ import { CommonModule } from '@angular/common';
       border-radius: 50px;
       cursor: pointer;
       font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .resume-view-overlay {
+        padding: 0;
+      }
+      .resume-modal {
+        height: 100vh;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .pdf-header {
+        padding: 0.5rem;
+        .header-center { display: none; }
+        .file-name { display: none; }
+      }
+      .resume-content-scroll {
+        padding: 1rem;
+      }
+      .resume-page {
+        padding: 20px;
+        box-shadow: none;
+        h1 { font-size: 1.5rem; }
+      }
+      .resume-section h4 {
+        font-size: 0.9rem;
+      }
+      .exp-item h5 {
+        flex-direction: column;
+        gap: 2px;
+        span { font-size: 0.8rem; }
+      }
     }
   `]
 })
